@@ -393,4 +393,11 @@ open class FileDestination: BaseDestination {
       }
       return URLs
     }
+
+    // flush all pending file changes to disk
+    open func synchronize() {
+        if logFileHandle != nil {
+            logFileHandle?.synchronizeFile()
+        }
+    }
 }
